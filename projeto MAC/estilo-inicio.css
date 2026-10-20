@@ -1,0 +1,111 @@
+.pagina-inicial {
+    padding: 40px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* BEM-VINDO */
+
+.boas-vindas {
+    margin-bottom: 30px;
+}
+
+.boas-vindas h1 {
+    font-size: 58px;
+    line-height: 1.05;
+    margin: 0 0 15px;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+}
+
+.boas-vindas h1 span {
+    color: #000000;
+}
+
+.boas-vindas p {
+    max-width: 750px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+
+/* BANNER */
+
+.banner-escola {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 35px;
+    background: #fbfcfd;
+}
+
+.banner-escola img {
+    width: 100%;
+    height: 100%;
+
+    /*
+       O cover faz a foto preencher o banner
+       sem deformar a imagem.
+    */
+    object-fit: contain;
+
+    object-position: center;
+}
+
+
+/* TEXTO SOBRE O BANNER */
+
+.texto-banner {
+    position: absolute;
+    right: 40px;
+    bottom: 35px;
+
+    color: rgb(0, 0, 0);
+    text-align: right;
+
+    text-shadow: 0 3px 10px rgba(255, 255, 255, 0.342);
+}
+
+.texto-banner h2 {
+    font-size: 36px;
+    font-style: italic;
+    margin: 0;
+}
+
+
+/* COMO FUNCIONA */
+
+.como-funciona {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    padding: 30px 40px;
+
+    background: #17233b;
+    border-radius: 18px;
+
+    color: rgb(253, 250, 250);
+}
+
+.icone-mochila {
+    font-size: 65px;
+}
+
+.como-funciona h2 {
+    font-size: 28px;
+    margin: 0 0 10px;
+}
+
+.como-funciona p {
+    margin: 0;
+
+    color: #f8f2f2;
+
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 900px;
+}

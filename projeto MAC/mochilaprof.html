@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mochila Unificada - MAC</title>
+    <link rel="stylesheet" href="estilo-mochila.css">
+    <style>
+        .btn-flutuante {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-excluir {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-conteudo {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-conteudo input,
+        .modal-conteudo textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: sans-serif;
+        }
+
+        .grid-conteudos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="pagina-mochila">
+        <header class="cabecalho-mochila">
+            <p class="sobretitulo">ÁREA DE ESTUDOS</p>
+            <h1>Minha Mochila</h1>
+            <p class="descricao-cabecalho">Seus materiais, organizados por turma e matéria.</p>
+        </header>
+
+        <section class="organizacao-turmas" aria-label="Escolher turma">
+            <div class="texto-turmas">
+                <p class="sobretitulo">TURMA</p>
+                <h2>Escolha sua turma</h2>
+            </div>
+            <label for="filtro-turma">Minha turma</label>
+            <select id="filtro-turma" aria-describedby="ajuda-turma">
+                <option value="">Selecione sua turma</option>
+                <option value="Todas as turmas">Todas as turmas (professor)</option>
+                <optgroup label="1º ano">
+                    <option value="1º A">1º A</option>
+                    <option value="1º B">1º B</option>
+                    <option value="1º C">1º C</option>
+                </optgroup>
+                <optgroup label="2º ano">
+                    <option value="2º A">2º A</option>
+                    <option value="2º B">2º B</option>
+                    <option value="2º C">2º C</option>
+                </optgroup>
+                <optgroup label="3º ano">
+                    <option value="3º A">3º A</option>
+                    <option value="3º B">3º B</option>
+                    <option value="3º C">3º C</option>
+                </optgroup>
+            </select>
+            <p id="ajuda-turma" class="ajuda-turma">Troque de turma quando quiser.</p>
+        </section>
+
+        <section class="organizacao-materias" aria-label="Filtrar por matéria">
+            <div class="titulo-filtros">
+                <div>
+                    <h2>Matérias</h2>
+                    <p>Filtre os conteúdos por disciplina.</p>
+                </div><span id="contador-materiais">0 materiais</span>
+            </div>
+            <div id="filtros-materias" class="filtros-materias">
+                <button type="button" class="filtro-materia ativo" data-materia="Todas">📚 Todas <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Português">📝 Português
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Matemática">🔢 Matemática
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Biologia">🧬 Biologia <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="História">🏛️ História
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Geografia">🌎 Geografia
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Física">⚡ Física <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Química">🧪 Química <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Sociologia">💬 Sociologia
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Filosofia">💡 Filosofia
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Inglês">🌐 Inglês <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Artes">🎨 Artes <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Educação Física">🏀 Educação Física
+                    <span>0</span></button>
+                <button type="button" class="filtro-materia" data-materia="Outras">📌 Outras <span>0</span></button>
+            </div>
+        </section>
+        <p id="aviso-mochila-vazia" class="aviso-vazio" hidden></p>
+        <p id="aviso-busca-vazia" class="aviso-vazio" hidden></p>
+        <div id="container-mochila" class="grid-conteudos"></div>
+
+        <button id="btn-add-mochila" class="btn-flutuante" onclick="mostrarModal()">+</button>
+
+        <div id="modal-mochila" class="modal">
+            <div class="modal-conteudo">
+                <h3 style="margin-top: 0; font-family: sans-serif;">Publicar conteúdo</h3>
+
+                <input type="text" id="titulo" placeholder="Título do conteúdo">
+
+                <label for="turma-conteudo" style="font-family:sans-serif;font-weight:bold;">Turma que receberá o
+                    conteúdo</label>
+                <select id="turma-conteudo">
+                    <option value="" selected disabled>Selecione uma turma</option>
+                    <option value="Todas as turmas">📚 Todas as turmas</option>
+                    <optgroup label="1º ano">
+                        <option value="1º A">1º A</option>
+                        <option value="1º B">1º B</option>
+                        <option value="1º C">1º C</option>
+                    </optgroup>
+                    <optgroup label="2º ano">
+                        <option value="2º A">2º A</option>
+                        <option value="2º B">2º B</option>
+                        <option value="2º C">2º C</option>
+                    </optgroup>
+                    <optgroup label="3º ano">
+                        <option value="3º A">3º A</option>
+                        <option value="3º B">3º B</option>
+                        <option value="3º C">3º C</option>
+                    </optgroup>
+                </select>
+                <label for="materia" style="font-family:sans-serif;font-weight:bold;">Matéria</label>
+                <select id="materia">
+                    <option value="Português">📝 Português</option>
+                    <option value="Matemática">🔢 Matemática</option>
+                    <option value="Biologia">🧬 Biologia</option>
+                    <option value="História">🏛️ História</option>
+                    <option value="Geografia">🌎 Geografia</option>
+                    <option value="Física">⚡ Física</option>
+                    <option value="Química">🧪 Química</option>
+                    <option value="Sociologia">💬 Sociologia</option>
+                    <option value="Filosofia">💡 Filosofia</option>
+                    <option value="Inglês">🌐 Inglês</option>
+                    <option value="Artes">🎨 Artes</option>
+                    <option value="Educação Física">🏀 Educação Física</option>
+                    <option value="Outras">📌 Outras</option>
+                </select>
+                <textarea id="descricao" rows="4" placeholder="Escreva as instruções para os alunos..."></textarea>
+
+                <label style="font-family:sans-serif; font-weight:bold;">Adicionar material:</label>
+
+                <select id="tipoMaterial" onchange="alterarTipoMaterial()"
+                    style="padding:10px; border:1px solid #ccc; border-radius:4px;">
+                    <option value="nenhum">Nenhum</option>
+                    <option value="youtube">▶️ Vídeo do YouTube</option>
+                    <option value="foto">🖼️ Foto do computador</option>
+                </select>
+
+                <div id="campoYoutube" style="display:none;">
+                    <input type="url" id="youtubeUrl" placeholder="Cole o link do YouTube (ex.: https://youtu.be/...)">
+                    <small style="font-family:sans-serif; color:#666;">O vídeo ficará disponível para os alunos dentro
+                        da mochila.</small>
+                </div>
+
+                <div id="campoFoto" style="display:none;">
+                    <input type="file" id="fotoArquivo" accept="image/*">
+                    <small style="font-family:sans-serif; color:#666;">Escolha uma foto do computador.</small>
+                </div>
+
+                <button onclick="salvarItem()"
+                    style="background: #28a745; color: white; padding: 12px; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Publicar
+                    Conteúdo</button>
+                <button onclick="fecharModal()"
+                    style="background: #6c757d; color: white; padding: 8px; border:none; border-radius:4px; cursor:pointer;">Cancelar</button>
+            </div>
+        </div>
+
+        <script>
+            let modoAcesso = 'professor';
+            try {
+                if (localStorage.getItem('projeto_mac_modo')) {
+                    modoAcesso = localStorage.getItem('projeto_mac_modo');
+                }
+            } catch (e) { }
+
+            function inicializarMochila() {
+                const btnProfessor = document.getElementById('btn-add-mochila');
+                if (btnProfessor) {
+                    if (modoAcesso === 'professor') {
+                        btnProfessor.style.display = 'flex';
+                    } else {
+                        btnProfessor.style.display = 'none';
+                    }
+                }
+                const filtroTurma = document.getElementById('filtro-turma');
+                if (filtroTurma) {
+                    filtroTurma.value = modoAcesso === 'professor' ? 'Todas as turmas' : '';
+                    const opcaoTodas = filtroTurma.querySelector('option[value="Todas as turmas"]');
+                    if (opcaoTodas) opcaoTodas.hidden = modoAcesso !== 'professor';
+                    filtroTurma.addEventListener('change', () => {
+                        const turmaConteudo = document.getElementById('turma-conteudo');
+                        if (modoAcesso === 'professor' && filtroTurma.value && filtroTurma.value !== 'Todas as turmas') turmaConteudo.value = filtroTurma.value;
+                        exibirItens();
+                    });
+                }
+                const textoTurmas = document.querySelector('.texto-turmas h2');
+                if (textoTurmas && modoAcesso === 'professor') textoTurmas.textContent = 'Organize os conteúdos por turma';
+                const ajudaTurma = document.getElementById('ajuda-turma');
+                if (ajudaTurma && modoAcesso === 'professor') ajudaTurma.textContent = 'Selecione uma turma para conferir o que foi publicado ou veja todas de uma vez.';
+                exibirItens();
+            }
+
+            function mostrarModal() {
+                document.getElementById('modal-mochila').style.display = 'flex';
+            }
+
+            function fecharModal() {
+                document.getElementById('modal-mochila').style.display = 'none';
+            }
+
+            function alterarTipoMaterial() {
+                const tipo = document.getElementById('tipoMaterial').value;
+                document.getElementById('campoYoutube').style.display = tipo === 'youtube' ? 'block' : 'none';
+                document.getElementById('campoFoto').style.display = tipo === 'foto' ? 'block' : 'none';
+            }
+
+            function obterYoutubeId(url) {
+                try {
+                    const link = new URL(url);
+                    if (link.hostname.includes('youtu.be')) {
+                        return link.pathname.substring(1).split('/')[0];
+                    }
+                    if (link.hostname.includes('youtube.com')) {
+                        if (link.pathname === '/watch') return link.searchParams.get('v');
+                        if (link.pathname.startsWith('/shorts/')) return link.pathname.split('/')[2];
+                        if (link.pathname.startsWith('/embed/')) return link.pathname.split('/')[2];
+                    }
+                } catch (e) { }
+                return null;
+            }
+
+            function lerFotoComoBase64(arquivo) {
+                return new Promise((resolve, reject) => {
+                    if (!arquivo) {
+                        resolve(null);
+                        return;
+                    }
+
+                    if (!arquivo.type.startsWith('image/')) {
+                        reject(new Error('Selecione uma imagem válida.'));
+                        return;
+                    }
+
+                    const leitor = new FileReader();
+                    leitor.onload = () => resolve(leitor.result);
+                    leitor.onerror = () => reject(new Error('Não foi possível ler a foto.'));
+                    leitor.readAsDataURL(arquivo);
+                });
+            }
+
+            async function salvarItem() {
+                const campoTitulo = document.getElementById('titulo').value.trim();
+                const campoDesc = document.getElementById('descricao').value.trim();
+                const tipo = document.getElementById('tipoMaterial').value;
+
+                if (!campoTitulo) {
+                    return alert("Por favor, digite o título do conteúdo!");
+                }
+                const turmaDoConteudo = document.getElementById('turma-conteudo').value;
+                if (!turmaDoConteudo) {
+                    return alert("Escolha a turma que receberá este conteúdo.");
+                }
+
+                const novoCard = {
+                    id: 'card-' + Date.now(),
+                    titulo: campoTitulo,
+                    descricao: campoDesc,
+                    materia: document.getElementById('materia').value,
+                    turma: turmaDoConteudo,
+                    tipoMaterial: 'nenhum',
+                    youtubeId: null,
+                    foto: null
+                };
+
+                try {
+                    if (tipo === 'youtube') {
+                        const url = document.getElementById('youtubeUrl').value.trim();
+                        const youtubeId = obterYoutubeId(url);
+
+                        if (!youtubeId) {
+                            return alert("Cole um link válido do YouTube.");
+                        }
+
+                        novoCard.tipoMaterial = 'youtube';
+                        novoCard.youtubeId = youtubeId;
+                    }
+
+                    if (tipo === 'foto') {
+                        const arquivo = document.getElementById('fotoArquivo').files[0];
+
+                        if (!arquivo) {
+                            return alert("Escolha uma foto do computador.");
+                        }
+
+                        novoCard.tipoMaterial = 'foto';
+                        novoCard.foto = await lerFotoComoBase64(arquivo);
+                    }
+
+                    let bancoMochila = [];
+                    try {
+                        bancoMochila = JSON.parse(localStorage.getItem('banco_mochila')) || [];
+                    } catch (e) { }
+
+                    bancoMochila.push(novoCard);
+
+                    localStorage.setItem('banco_mochila', JSON.stringify(bancoMochila));
+
+                    document.getElementById('titulo').value = '';
+                    document.getElementById('descricao').value = '';
+                    document.getElementById('turma-conteudo').value = turmaDoConteudo;
+                    document.getElementById('youtubeUrl').value = '';
+                    document.getElementById('fotoArquivo').value = '';
+                    document.getElementById('tipoMaterial').value = 'nenhum';
+                    alterarTipoMaterial();
+
+                    fecharModal();
+                    exibirItens();
+
+                } catch (e) {
+                    alert("Não foi possível publicar esse conteúdo. Se for uma foto muito grande, tente uma imagem menor.");
+                    console.error(e);
+                }
+            }
+
+            function excluirItem(idItem) {
+                let bancoMochila = [];
+                try {
+                    bancoMochila = JSON.parse(localStorage.getItem('banco_mochila')) || [];
+                } catch (e) { }
+
+                bancoMochila = bancoMochila.filter(item => item.id !== idItem);
+
+                try {
+                    localStorage.setItem('banco_mochila', JSON.stringify(bancoMochila));
+                } catch (e) { }
+
+                exibirItens();
+            }
+
+            function escaparHtml(texto) {
+                return String(texto || '').replace(/[&<>"']/g, function (c) {
+                    return {
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        '"': '&quot;',
+                        "'": '&#039;'
+                    }[c];
+                });
+            }
+
+            let materiaSelecionada = 'Todas';
+            const filtroTurmaEl = document.getElementById('filtro-turma');
+            document.querySelectorAll('.filtro-materia').forEach(botao => {
+                botao.addEventListener('click', () => {
+                    materiaSelecionada = botao.dataset.materia;
+                    document.querySelectorAll('.filtro-materia').forEach(b => b.classList.toggle('ativo', b === botao));
+                    exibirItens();
+                });
+            });
+
+            function exibirItens() {
+                const container = document.getElementById('container-mochila');
+                if (!container) return;
+                container.innerHTML = '';
+
+                let bancoMochila = [];
+                try {
+                    bancoMochila = JSON.parse(localStorage.getItem('banco_mochila')) || [];
+                } catch (e) { }
+
+                const turmaSelecionada = filtroTurmaEl ? filtroTurmaEl.value : 'Todas as turmas';
+                const aviso = document.getElementById('aviso-mochila-vazia');
+                const avisoBusca = document.getElementById('aviso-busca-vazia');
+                if (modoAcesso !== 'professor' && !turmaSelecionada) {
+                    if (aviso) { aviso.hidden = false; aviso.textContent = 'Para começar, selecione sua turma acima. Assim você verá apenas os materiais destinados à sua sala.'; }
+                    if (avisoBusca) avisoBusca.hidden = true;
+                    document.getElementById('organizacao-materias')?.classList.add('bloqueada');
+                    document.querySelector('.organizacao-materias')?.classList.add('bloqueada');
+                    document.getElementById('contador-materiais').textContent = 'Escolha uma turma';
+                    document.querySelectorAll('.filtro-materia').forEach(botao => { botao.querySelector('span').textContent = '0'; botao.hidden = botao.dataset.materia !== 'Todas'; });
+                    return;
+                }
+                document.querySelector('.organizacao-materias')?.classList.remove('bloqueada');
+                const normalizarMateria = item => item.materia || 'Outras';
+                const normalizarTurma = item => item.turma || 'Todas as turmas';
+                const itensDaTurma = bancoMochila.filter(item => turmaSelecionada === 'Todas as turmas' || normalizarTurma(item) === turmaSelecionada || normalizarTurma(item) === 'Todas as turmas');
+                if (aviso) { aviso.hidden = itensDaTurma.length > 0; aviso.textContent = bancoMochila.length === 0 ? 'Sua mochila ainda está vazia. No modo Professor, publique um conteúdo para começar.' : 'Ainda não há conteúdos para esta turma. Confira outra turma ou aguarde novas publicações do professor.'; }
+                const contagens = {};
+                itensDaTurma.forEach(item => { const m = normalizarMateria(item); contagens[m] = (contagens[m] || 0) + 1; });
+                document.querySelectorAll('.filtro-materia').forEach(botao => {
+                    const materia = botao.dataset.materia;
+                    const quantidade = materia === 'Todas' ? itensDaTurma.length : (contagens[materia] || 0);
+                    botao.querySelector('span').textContent = quantidade;
+                    botao.hidden = materia !== 'Todas' && quantidade === 0;
+                });
+                document.getElementById('contador-materiais').textContent = itensDaTurma.length + (itensDaTurma.length === 1 ? ' material' : ' materiais');
+                let exibidos = 0;
+                itensDaTurma.forEach(item => {
+                    const materiaItem = normalizarMateria(item);
+                    if (materiaSelecionada !== 'Todas' && materiaItem !== materiaSelecionada) return;
+                    exibidos++;
+                    const card = document.createElement('div');
+                    card.className = 'card-item';
+
+                    const exibirBotaoExcluir = (modoAcesso === 'professor') ? 'block' : 'none';
+
+                    let materialHtml = '';
+
+                    if (item.tipoMaterial === 'youtube' && item.youtubeId) {
+                        materialHtml = `
+                        <div class="material-mochila">
+                            <p style="font-weight:bold; margin-bottom:8px;">▶️ Vídeo</p>
+                            <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px;">
+                                <iframe
+                                    src="https://www.youtube.com/embed/${encodeURIComponent(item.youtubeId)}"
+                                    title="Vídeo do YouTube"
+                                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>`;
+                    }
+
+                    if (item.tipoMaterial === 'livro') {
+                        materialHtml = item.url
+                            ? `<p><a class="link-leitura" href="${escaparHtml(item.url)}" target="_blank" rel="noopener noreferrer">📖 Abrir livro no acervo digital ↗</a></p>`
+                            : '<p class="sem-link-livro">Ainda não há um link de leitura confirmado para este título.</p>';
+                    }
+
+                    if (item.tipoMaterial === 'foto' && item.foto) {
+                        materialHtml = `
+                        <div class="material-mochila">
+                            <p style="font-weight:bold; margin-bottom:8px;">🖼️ Foto</p>
+                            <img
+                                src="${item.foto}"
+                                alt="Foto adicionada pelo professor"
+                                style="display:block; width:100%; max-height:420px; object-fit:contain; border-radius:8px; background:#f4f4f4;">
+                        </div>`;
+                    }
+
+                    card.innerHTML = `
+                    <div>
+                        <div class="etiquetas-conteudo"><span class="etiqueta-turma">${escaparHtml(normalizarTurma(item))}</span><span class="etiqueta-materia">${escaparHtml(materiaItem)}</span></div>
+                        <h3 style="margin-top:10px; color:#333; font-family:sans-serif;">${escaparHtml(item.titulo)}</h3>
+                        <p style="color:#555; font-family:sans-serif; line-height:1.5; font-size:14px; white-space: pre-wrap;">${escaparHtml(item.descricao)}</p>
+                        ${materialHtml}
+                    </div>
+                    <button class="btn-excluir" style="display: ${exibirBotaoExcluir}" onclick="excluirItem('${item.id}')">Excluir Conteúdo</button>
+                `;
+
+                    container.appendChild(card);
+                });
+                if (avisoBusca) {
+                    avisoBusca.hidden = !(itensDaTurma.length > 0 && exibidos === 0);
+                    avisoBusca.textContent = 'Ainda não há materiais nesta matéria. No modo Professor, publique um conteúdo e escolha a turma e a matéria.';
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', inicializarMochila);
+            window.addEventListener('storage', exibirItens);
+        </script>
+    </main>
+</body>
+
+</html>

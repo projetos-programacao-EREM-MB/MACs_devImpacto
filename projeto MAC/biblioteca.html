@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca digital | Minha Mochila</title>
+  <link rel="stylesheet" href="estilo-livro.css" />
+</head>
+
+<body>
+  <main class="pagina-biblioteca">
+    <header class="cabecalho-biblioteca">
+      <p class="sobretitulo">MINHA MOCHILA · ACERVO</p>
+      <h1>Biblioteca digital</h1>
+      <p>
+        Encontre um título, consulte a disponibilidade física e acesse o
+        acervo digital quando houver um link específico.
+      </p>
+      <p class="nota-acervo">
+        Os status físicos são demonstrativos neste protótipo. Confirme a
+        disponibilidade com a biblioteca da escola.
+      </p>
+    </header>
+    <p id="aviso-busca-vazia" class="aviso-vazio" hidden>
+      Nenhum livro encontrado.
+    </p>
+    <div class="container-livros">
+      <article class="card-livro" data-titulo="Capitães de areia">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://static-meclivros.mec.gov.br/covers-webp/9788563397386.jpg?w=800&quot;);
+            " role="img" aria-label="Capa de Capitães de areia"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">Capitães de areia</h2>
+            <p class="desc-livro">
+              Romance de Jorge Amado que retrata a vida de meninos em situação
+              de rua em Salvador.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Literatura</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=1001731" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="Capitães de areia"
+              data-description="Romance de Jorge Amado que retrata a vida de meninos em situação de rua em Salvador."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=1001731">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="A volta ao mundo em 80 dias">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://static-meclivros.mec.gov.br/covers-webp/9788525423498.jpg?w=800&quot;);
+            " role="img" aria-label="Capa de A volta ao mundo em 80 dias"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">A volta ao mundo em 80 dias</h2>
+            <p class="desc-livro">
+              Aventura de Júlio Verne sobre uma viagem ao redor do mundo
+              contra o relógio.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Ficção científica</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=300015892" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="A volta ao mundo em 80 dias"
+              data-description="Aventura de Júlio Verne sobre uma viagem ao redor do mundo contra o relógio."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=300015892">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="A cabeça do santo">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://static-meclivros.mec.gov.br/covers-webp/9788580869354.jpg?w=600&quot;);
+            " role="img" aria-label="Capa de A cabeça do santo"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">A cabeça do santo</h2>
+            <p class="desc-livro">
+              Romance de Socorro Acioli que mistura realismo mágico, fé e
+              relações humanas.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Realismo mágico</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=1001851" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="A cabeça do santo"
+              data-description="Romance de Socorro Acioli que mistura realismo mágico, fé e relações humanas."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=1001851">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="Olga">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://static-meclivros.mec.gov.br/covers-webp/9786557826676.jpg?w=800&quot;);
+            " role="img" aria-label="Capa de Olga"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">Olga</h2>
+            <p class="desc-livro">
+              Biografia de Olga Benário, militante política cuja trajetória se
+              cruza com a história do Brasil.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Biografia</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=1002835" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="Olga"
+              data-description="Biografia de Olga Benário, militante política cuja trajetória se cruza com a história do Brasil."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=1002835">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="Dom Casmurro">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://static-meclivros.mec.gov.br/covers-webp/9788564823297.jpg?w=800&quot;);
+            " role="img" aria-label="Capa de Dom Casmurro"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">Dom Casmurro</h2>
+            <p class="desc-livro">
+              Clássico de Machado de Assis narrado por Bentinho, marcado por
+              memória e dúvida.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Romance</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=300007659" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="Dom Casmurro"
+              data-description="Clássico de Machado de Assis narrado por Bentinho, marcado por memória e dúvida."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=300007659">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="A Era das Revoluções">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn0mvN9qEtzTvt4C4Z2ljBZ1k3ml3T8aZiuSJ6_-0UoA&amp;s=10&quot;);
+            " role="img" aria-label="Capa de A Era das Revoluções"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">A Era das Revoluções</h2>
+            <p class="desc-livro">
+              Obra de Eric Hobsbawm sobre transformações políticas e
+              econômicas entre 1789 e 1848.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">História</span><span class="tag tag-sem-link"
+                title="Ainda não há um link específico confirmado">Link de leitura não confirmado</span>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="A Era das Revoluções"
+              data-description="Obra de Eric Hobsbawm sobre transformações políticas e econômicas entre 1789 e 1848."
+              data-url="">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="1984 George Orwell">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW5aUVNZcyVmuoUp7QjMI_PWtG8bdhcUEMHdy5N3k6Kg&amp;s=10&quot;);
+            " role="img" aria-label="Capa de 1984 George Orwell"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">1984 George Orwell</h2>
+            <p class="desc-livro">
+              Romance distópico de George Orwell sobre vigilância, poder e
+              controle da informação.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Literatura</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=300017679" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="1984 George Orwell"
+              data-description="Romance distópico de George Orwell sobre vigilância, poder e controle da informação."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=300017679">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="Vinte mil léguas submarinas">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR58sqnqRillxM29RQdJoKjBlan9ub-SWPm6Lq61whoeg&amp;s=10&quot;);
+            " role="img" aria-label="Capa de Vinte mil léguas submarinas"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">Vinte mil léguas submarinas</h2>
+            <p class="desc-livro">
+              Aventura de Júlio Verne que acompanha uma expedição submarina a
+              bordo do Náutilus.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Ficção científica</span><span class="tag tag-sem-link"
+                title="Ainda não há um link específico confirmado">Link de leitura não confirmado</span>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="Vinte mil léguas submarinas"
+              data-description="Aventura de Júlio Verne que acompanha uma expedição submarina a bordo do Náutilus."
+              data-url="">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="O pior dia de todos">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCC9yJOK6--BCsyl6Y8ya_6JbTMTah0H5aJ-jA74BkGQ&amp;s=10&quot;);
+            " role="img" aria-label="Capa de O pior dia de todos"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">O pior dia de todos</h2>
+            <p class="desc-livro">
+              Título mantido do acervo original; confirme autor, sinopse e
+              edição com a biblioteca.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Romance</span><span class="tag tag-sem-link"
+                title="Ainda não há um link específico confirmado">Link de leitura não confirmado</span>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="O pior dia de todos"
+              data-description="Título mantido do acervo original; confirme autor, sinopse e edição com a biblioteca."
+              data-url="">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="O médico e o monstro">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCJeRs8YlKObL8-KjmAAGHzLciUQRapR_zhjgny-_EiQ&amp;s=10&quot;);
+            " role="img" aria-label="Capa de O médico e o monstro"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">O médico e o monstro</h2>
+            <p class="desc-livro">
+              Novela de Robert Louis Stevenson sobre a dualidade humana e os
+              limites da ciência.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Romance</span><a
+                href="https://meclivros.mec.gov.br/search/view-work?id=1000137" target="_blank"
+                rel="noopener noreferrer" class="tag tag-mec">Abrir no MEC Livros ↗</a>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="O médico e o monstro"
+              data-description="Novela de Robert Louis Stevenson sobre a dualidade humana e os limites da ciência."
+              data-url="https://meclivros.mec.gov.br/search/view-work?id=1000137">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="O bom de briga">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScGi3Ca9H3aFcN8Xj2ZkG2rJ2V9C9Bjb_VNK6HmjvnOA&amp;s=10&quot;);
+            " role="img" aria-label="Capa de O bom de briga"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">O bom de briga</h2>
+            <p class="desc-livro">
+              Título mantido do acervo original; confirme autor, sinopse e
+              edição com a biblioteca.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Literatura</span><span class="tag tag-sem-link"
+                title="Ainda não há um link específico confirmado">Link de leitura não confirmado</span>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="O bom de briga"
+              data-description="Título mantido do acervo original; confirme autor, sinopse e edição com a biblioteca."
+              data-url="">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card-livro" data-titulo="O azarão">
+        <div class="capa-livro" style="
+              background-image: url(&quot;https://m.media-amazon.com/images/I/71ne80xv-iL._AC_UF1000,1000_QL80_.jpg&quot;);
+            " role="img" aria-label="Capa de O azarão"></div>
+        <div class="info-livro">
+          <div>
+            <h2 class="titulo-livro">O azarão</h2>
+            <p class="desc-livro">
+              Título mantido do acervo original; confirme autor, sinopse e
+              edição com a biblioteca.
+            </p>
+            <div class="linha-tags">
+              <span class="tag tag-genero">Literatura infantil</span><span class="tag tag-sem-link"
+                title="Ainda não há um link específico confirmado">Link de leitura não confirmado</span>
+            </div>
+          </div>
+          <div class="acoes-livro">
+            <span class="tag status-consultar">Consultar biblioteca física</span><button type="button"
+              class="btn-salvar-livro" data-title="O azarão"
+              data-description="Título mantido do acervo original; confirme autor, sinopse e edição com a biblioteca."
+              data-url="">
+              ＋ Salvar na mochila
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div id="modal-atividade-livro" class="modal-atividade-livro" hidden>
+      <section class="painel-atividade-livro" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-livro">
+        <div class="cabecalho-modal-livro">
+          <span class="icone-modal-livro">📚</span>
+          <div>
+            <p class="rotulo-modal-livro">MODO PROFESSOR</p>
+            <h2 id="titulo-modal-livro">Adicionar livro como atividade</h2>
+            <p>Escolha a turma e a matéria para organizar este livro na mochila.</p>
+          </div>
+          <button type="button" class="fechar-modal-livro" id="fechar-modal-livro" aria-label="Fechar">×</button>
+        </div>
+        <div class="livro-selecionado"><span>Livro selecionado</span><strong id="nome-livro-selecionado"></strong></div>
+        <label for="atividade-turma">Turma</label>
+        <select id="atividade-turma">
+          <option value="" selected disabled>Selecione a turma</option>
+          <option value="Todas as turmas">Todas as turmas</option>
+          <optgroup label="1º ano">
+            <option>1º A</option>
+            <option>1º B</option>
+            <option>1º C</option>
+          </optgroup>
+          <optgroup label="2º ano">
+            <option>2º A</option>
+            <option>2º B</option>
+            <option>2º C</option>
+          </optgroup>
+          <optgroup label="3º ano">
+            <option>3º A</option>
+            <option>3º B</option>
+            <option>3º C</option>
+          </optgroup>
+        </select>
+        <label for="atividade-materia">Matéria</label>
+        <select id="atividade-materia">
+          <option value="Português">📝 Português</option>
+          <option value="Matemática">🔢 Matemática</option>
+          <option value="Biologia">🧬 Biologia</option>
+          <option value="História">🏛️ História</option>
+          <option value="Geografia">🌎 Geografia</option>
+          <option value="Física">⚡ Física</option>
+          <option value="Química">🧪 Química</option>
+          <option value="Sociologia">💬 Sociologia</option>
+          <option value="Filosofia">💡 Filosofia</option>
+          <option value="Inglês">🌐 Inglês</option>
+          <option value="Artes">🎨 Artes</option>
+          <option value="Educação Física">🏀 Educação Física</option>
+          <option value="Outras">📌 Outras</option>
+        </select>
+        <label for="atividade-instrucoes">Orientação para os alunos <span>(opcional)</span></label>
+        <textarea id="atividade-instrucoes" rows="3"
+          placeholder="Ex.: Leia o capítulo e anote as ideias principais."></textarea>
+        <div class="acoes-modal-livro"><button type="button" class="cancelar-modal-livro"
+            id="cancelar-modal-livro">Cancelar</button><button type="button" class="publicar-livro-modal"
+            id="publicar-livro-modal">＋ Adicionar à mochila</button></div>
+      </section>
+    </div>
+    <p class="rodape-biblioteca">
+      Dica: use a busca no topo do site. Os livros salvos aparecem na seção
+      “Minha mochila” neste mesmo navegador.
+    </p>
+  </main>
+  <style>
+    .modal-atividade-livro[hidden] {
+      display: none !important
+    }
+
+    .modal-atividade-livro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(23, 31, 55, .48);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px
+    }
+
+    .painel-atividade-livro {
+      width: min(100%, 480px);
+      max-height: 90vh;
+      overflow: auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 24px 70px #14204435;
+      color: #20264b;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .cabecalho-modal-livro {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 8px
+    }
+
+    .icone-modal-livro {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: #eaf5ed;
+      border-radius: 13px;
+      font-size: 22px;
+      flex-shrink: 0
+    }
+
+    .cabecalho-modal-livro>div {
+      flex: 1
+    }
+
+    .rotulo-modal-livro {
+      font-size: 10px;
+      letter-spacing: 1.3px;
+      color: #248348;
+      font-weight: 800;
+      margin: 0 0 5px
+    }
+
+    .cabecalho-modal-livro h2 {
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0 0 6px
+    }
+
+    .cabecalho-modal-livro p:last-child {
+      font-size: 13px;
+      color: #737b8e;
+      line-height: 1.45;
+      margin: 0
+    }
+
+    .fechar-modal-livro {
+      border: 0;
+      background: #f2f4f8;
+      color: #5d6577;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 23px;
+      cursor: pointer;
+      line-height: 1
+    }
+
+    .livro-selecionado {
+      background: #f6f8fc;
+      border: 1px solid #e8ebf2;
+      border-radius: 11px;
+      padding: 11px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 5px
+    }
+
+    .livro-selecionado span,
+    .painel-atividade-livro label {
+      font-size: 12px;
+      color: #616b80;
+      font-weight: 700
+    }
+
+    .livro-selecionado strong {
+      font-size: 14px
+    }
+
+    .painel-atividade-livro select,
+    .painel-atividade-livro textarea {
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px solid #dfe4ee;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font: inherit;
+      font-size: 13px;
+      background: #fff;
+      color: #29314a;
+      outline: none
+    }
+
+    .painel-atividade-livro select:focus,
+    .painel-atividade-livro textarea:focus {
+      border-color: #80b994;
+      box-shadow: 0 0 0 3px #28a74518
+    }
+
+    .painel-atividade-livro label span {
+      font-weight: 400;
+      color: #8b91a0
+    }
+
+    .painel-atividade-livro textarea {
+      resize: vertical;
+      min-height: 78px
+    }
+
+    .acoes-modal-livro {
+      display: flex;
+      justify-content: flex-end;
+      gap: 9px;
+      margin-top: 9px
+    }
+
+    .acoes-modal-livro button {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 15px;
+      font-weight: 750;
+      font-size: 13px;
+      cursor: pointer
+    }
+
+    .cancelar-modal-livro {
+      background: #f0f2f6;
+      color: #555f74
+    }
+
+    .publicar-livro-modal {
+      background: #28a745;
+      color: #fff;
+      box-shadow: 0 4px 10px #28a74524
+    }
+
+    .publicar-livro-modal:hover {
+      background: #218838
+    }
+
+    @media(max-width:520px) {
+      .painel-atividade-livro {
+        padding: 19px;
+        border-radius: 16px
+      }
+
+      .cabecalho-modal-livro h2 {
+        font-size: 18px
+      }
+
+      .acoes-modal-livro {
+        flex-direction: column-reverse
+      }
+
+      .acoes-modal-livro button {
+        width: 100%
+      }
+    }
+  </style>
+  <script>
+    let livroPendente = null;
+    const modalLivro = document.getElementById('modal-atividade-livro');
+    const fecharModalLivro = () => { modalLivro.hidden = true; livroPendente = null; };
+    document.getElementById('fechar-modal-livro').addEventListener('click', fecharModalLivro);
+    document.getElementById('cancelar-modal-livro').addEventListener('click', fecharModalLivro);
+    modalLivro.addEventListener('click', e => { if (e.target === modalLivro) fecharModalLivro(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modalLivro.hidden) fecharModalLivro(); });
+
+    document.querySelectorAll('.btn-salvar-livro').forEach(button => {
+      button.textContent = '＋ Adicionar como atividade';
+      button.addEventListener('click', () => {
+        let modo = 'professor';
+        try { modo = localStorage.getItem('projeto_mac_modo') || 'professor'; } catch (e) { }
+        if (modo !== 'professor') {
+          alert('A opção de adicionar livros como atividade está disponível no modo Professor.');
+          return;
+        }
+        let items = [];
+        try { items = JSON.parse(localStorage.getItem('banco_mochila') || '[]'); } catch (e) { }
+        const title = button.dataset.title;
+        if (items.some(item => item.tipoMaterial === 'livro' && item.titulo === title)) {
+          button.textContent = '✓ Já adicionado'; button.disabled = true; return;
+        }
+        livroPendente = { titulo: title, descricao: button.dataset.description || '', url: button.dataset.url || null, button };
+        document.getElementById('nome-livro-selecionado').textContent = title;
+        document.getElementById('atividade-turma').value = '';
+        document.getElementById('atividade-materia').value = 'Português';
+        document.getElementById('atividade-instrucoes').value = '';
+        modalLivro.hidden = false;
+        document.getElementById('atividade-turma').focus();
+      });
+    });
+
+    document.getElementById('publicar-livro-modal').addEventListener('click', () => {
+      if (!livroPendente) return;
+      const turma = document.getElementById('atividade-turma').value;
+      if (!turma) { alert('Escolha a turma que receberá esta atividade.'); document.getElementById('atividade-turma').focus(); return; }
+      let items = [];
+      try { items = JSON.parse(localStorage.getItem('banco_mochila') || '[]'); } catch (e) { items = []; }
+      if (items.some(item => item.tipoMaterial === 'livro' && item.titulo === livroPendente.titulo)) {
+        alert('Este livro já foi adicionado à mochila.'); fecharModalLivro(); return;
+      }
+      const instrucoes = document.getElementById('atividade-instrucoes').value.trim();
+      items.push({
+        id: 'livro-' + Date.now() + '-' + Math.random().toString(16).slice(2, 7),
+        titulo: livroPendente.titulo,
+        descricao: [livroPendente.descricao, instrucoes ? 'Orientação do professor: ' + instrucoes : ''].filter(Boolean).join('\n\n'),
+        tipoMaterial: 'livro', url: livroPendente.url, origem: 'biblioteca',
+        turma, materia: document.getElementById('atividade-materia').value
+      });
+      try {
+        localStorage.setItem('banco_mochila', JSON.stringify(items));
+        livroPendente.button.textContent = '✓ Adicionado como atividade';
+        livroPendente.button.disabled = true;
+        fecharModalLivro();
+        alert('Livro adicionado à mochila da turma selecionada!');
+      } catch (e) { alert('Não foi possível salvar. Abra o site por um servidor web e tente novamente.'); }
+    });
+  </script>
+</body>
+
+</html>

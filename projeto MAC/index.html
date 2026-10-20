@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Minha Mochila: biblioteca digital e organização de materiais escolares em um só lugar."
+    />
+    <title>Minha Mochila | Projeto MAC</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header class="barra-de-cima">
+      <a
+        class="logo"
+        href="inicio.html"
+        target="janela-centro"
+        aria-label="Minha Mochila, página inicial"
+        ><img src="mochilasemfundo.png" alt="" width="52" height="52" />
+        <span>Minha Mochila</span></a
+      >
+      <div class="search-container">
+        <label class="sr-only" for="input-busca"
+          >Buscar livros e atividades</label
+        >
+        <div class="search-box">
+          <i class="bi bi-search" aria-hidden="true"></i
+          ><input
+            type="search"
+            id="input-busca"
+            class="search-text"
+            placeholder="Buscar livros e atividades..."
+            autocomplete="off"
+          />
+        </div>
+        <div
+          id="caixa-sugestoes"
+          role="listbox"
+          aria-label="Sugestões de busca"
+        ></div>
+      </div>
+      <button
+        class="mobile-menu"
+        id="btn-menu-mobile"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+    </header>
+    <nav
+      class="menu-lateral"
+      id="menu-lateral"
+      aria-label="Navegação principal"
+    >
+      <button
+        class="tres-riscos"
+        id="btn-menu"
+        aria-label="Expandir ou recolher menu"
+        aria-expanded="false"
+      >
+        <i class="bi bi-list"></i><span>Menu</span>
+      </button>
+      <a href="inicio.html" target="janela-centro"
+        ><span class="icone-menu"><i class="bi bi-house"></i></span
+        ><span class="txt-link">Página inicial</span></a
+      >
+      <a href="biblioteca.html" target="janela-centro"
+        ><span class="icone-menu"><i class="bi bi-book"></i></span
+        ><span class="txt-link">Biblioteca digital</span></a
+      >
+      <a href="mochilaprof.html" target="janela-centro"
+        ><span class="icone-menu"><i class="bi bi-backpack2"></i></span
+        ><span class="txt-link">Minha mochila</span></a
+      >
+      <div class="modos-acesso">
+        <p>Modo de demonstração</p>
+        <button type="button" data-modo="professor">📁 Modo Professor</button
+        ><button type="button" data-modo="aluno">📖 Modo Aluno</button
+        ><small
+          >Os modos são demonstrativos, não são contas protegidas por
+          senha.</small
+        >
+      </div>
+    </nav>
+    <main class="area-principal">
+      <iframe
+        src="inicio.html"
+        name="janela-centro"
+        class="conteudo-centro"
+        title="Conteúdo do Minha Mochila"
+      ></iframe>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
